@@ -1,4 +1,4 @@
-type CallbackFn = (...args: any[]) => any;
+import type { CallbackFn } from "./type";
 
 class PubSub {
   public messages: Map<string, any[]> = new Map();
@@ -40,15 +40,15 @@ pubSub.publish(TYPE_A, "A计划");
 pubSub.publish(TYPE_B, "B计划");
 pubSub.publish(TYPE_C, "C计划");
 
-pubSub.subscribe(TYPE_A, (msg) => {
+pubSub.subscribe(TYPE_A, (msg: string) => {
   // @ts-ignore
   console.log(`订阅 ${msg}`);
 });
-pubSub.subscribe(TYPE_B, (msg) => {
+pubSub.subscribe(TYPE_B, (msg: string) => {
   // @ts-ignore
   console.log(`订阅 ${msg}`);
 });
-pubSub.subscribe(TYPE_C, (msg) => {
+pubSub.subscribe(TYPE_C, (msg: string) => {
   // @ts-ignore
   console.log(`订阅 ${msg}`);
 });
